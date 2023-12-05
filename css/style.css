@@ -49,6 +49,13 @@ body {
   justify-content: space-between;
 }
 
+.menu__close {
+  width: 20px;
+  margin-right: 0;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
 .menu__list {
   display: flex;
   gap: 65px;
@@ -57,13 +64,28 @@ body {
   line-height: normal;
 }
 
+.menu__item {
+  margin-bottom: 30px;
+}
+
 .user-actions {
   display: flex;
   gap: 20px;
 }
 
+.mobile-actions__link {
+  height: 22px;
+  width: auto;
+}
+
 .user-actions__item_search {
   margin-left: min(3vw, 80px);
+}
+
+.mobile-actions {
+  display: flex;
+  gap: 70px;
+  justify-content: center;
 }
 
 .top {
@@ -237,7 +259,16 @@ body {
   }
 
   .menu__list {
-    display: none;
+    display: block;
+    background-color: var(--White);
+    width: 360px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
   }
 
   .menu {
@@ -321,6 +352,7 @@ body {
 
   .top__title {
     font-size: 8.3vw;
+    line-height: normal;
   }
 
   .blockquote {
