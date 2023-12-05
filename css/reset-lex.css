@@ -1,11 +1,9 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
 *::after,
 *::before {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -14,8 +12,10 @@ a {
 }
 
 button {
-  background-color: transparent;
   outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 input {
@@ -25,4 +25,8 @@ input {
 ul,
 ol {
   list-style: none;
+}
+
+img {
+  width: 100%;
 }
