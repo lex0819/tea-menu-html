@@ -32,3 +32,23 @@ ol {
 img {
   width: 100%;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+}
