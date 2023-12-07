@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 a {
   display: block;
   text-decoration: none;
@@ -31,11 +36,6 @@ ol {
 
 img {
   width: 100%;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .wrapper {
