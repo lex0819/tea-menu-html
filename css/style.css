@@ -20,6 +20,14 @@ body {
   margin: 0 auto;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: 'Cormorant', serif;
+  font-size: 40px;
+  font-weight: 400;
+}
+
 .header {
   background-color: #fff;
 }
@@ -192,13 +200,13 @@ body {
   width: 100%;
 }
 
-.clients {
+.reviews {
   background: var(--Light-Background-opacity);
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
-.clients__inner {
+.reviews__inner {
   z-index: 1;
   color: var(--Black);
   font-family: Cormorant;
@@ -207,21 +215,38 @@ body {
   line-height: normal;
 }
 
-.clients__title {
+.reviews__title {
   text-align: center;
   font-size: 40px;
 }
 
-.clients__items {
-  margin-top: 60px;
+.reviews__list {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 26px;
+  justify-content: center;
 }
 
-.clients__item {
-  width: 280px;
+.reviews__item {
+  flex-basis: 280px;
+}
+
+.reviews_text {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.reviews__name {
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.reviews__item.reviews__item--hide {
+  display: none;
 }
 
 @media(max-width: 1000px) {
@@ -250,6 +275,14 @@ body {
   .collection__items {
     margin-bottom: 120px;
     gap: 0;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .reviews__item:last-child {
+    display: none;
   }
 }
 
@@ -389,6 +422,25 @@ body {
   .collection__items {
     flex-wrap: wrap;
   }
+
+  .reviews__list {
+    gap: 30px 76px;
+    flex-wrap: wrap;
+  }
+
+  .reviews__item:last-child {
+    display: block;
+  }
+}
+
+@media(max-width: 670px) {
+  .reviews__list {
+    gap: 30px 20px;
+  }
+
+  .reviews__item {
+    flex-basis: 45dvw;
+  }
 }
 
 @media(max-width: 480px) {
@@ -448,6 +500,10 @@ body {
   .collection__items {
     margin-bottom: 60px;
   }
+
+  .reviews__item {
+    flex-basis: 220px;
+  }
 }
 
 @media(max-width: 440px) {
@@ -489,5 +545,9 @@ body {
 
   .collection__title {
     font-size: 24px;
+  }
+
+  .title {
+    margin-bottom: 10px;
   }
 }
