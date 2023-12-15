@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create docker with repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
 
       - name: Set Enviroment
         run: set -eu
