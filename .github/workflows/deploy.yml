@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create docker with repo
+        uses: actions/checkout@v2
+
+      - name: Set Enviroment
+        run: set -eu
+      - name: Create /.ssh folder in docker
+        run: mkdir "$HOME/.ssh"
+      - name: Setup key from git secret to docker OS
+        run: echo "${{ secrets.KEY }}" > "$HOME/.ssh/key"
+      - name: Setup responsibillity of key in docker
+        run: chmod 600 "$HOME/.ssh/key"
+
+      - name: Copy substructure from prod folder to hosting
+        run: cd prod && rsync -e "ssh -p ${{ secrets.PORT }} -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.USER }}@${{ secrets.HOST }}:/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css

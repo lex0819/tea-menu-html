@@ -2,8 +2,8 @@
   --main-font-color: #151618;
   --White: #FFF;
   --Light-Background: #f7f1ea;
-  --Light-Background-opacity: rgb(247, 241, 232, .5);
-  --Black: #000;
+  --Light-Background-opacity: rgba(247, 242, 234, .5);
+  --Black: rgba(21, 22, 24, 1);
 }
 
 body {
@@ -26,6 +26,7 @@ body {
   font-family: 'Cormorant', serif;
   font-size: 40px;
   font-weight: 400;
+  color: var(--Black);
 }
 
 .header {
@@ -172,13 +173,6 @@ body {
   line-height: normal;
 }
 
-.collection__title {
-  text-align: center;
-  color: var(--Black);
-  font-size: 40px;
-  margin-bottom: 60px;
-}
-
 .collection__items {
   display: flex;
   justify-content: center;
@@ -215,11 +209,6 @@ body {
   line-height: normal;
 }
 
-.reviews__title {
-  text-align: center;
-  font-size: 40px;
-}
-
 .reviews__list {
   display: flex;
   gap: 26px;
@@ -249,6 +238,50 @@ body {
   display: none;
 }
 
+.main-blog {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.main-blog__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 58px;
+}
+
+.main-blog__item {
+  flex-basis: 542px;
+}
+
+.main-blog__item>figure {
+  display: flex;
+  gap: 20px;
+}
+
+.main-blog__item-img {
+  max-width: 270px;
+}
+
+.main-blog__item-title {
+  font-family: Cormorant;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.main-blog__item-author {
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.main-blog__item-link {
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: 300;
+}
+
 @media(max-width: 1000px) {
   .header__inner {
     min-height: auto;
@@ -275,10 +308,6 @@ body {
   .collection__items {
     margin-bottom: 120px;
     gap: 0;
-  }
-
-  .title {
-    margin-bottom: 30px;
   }
 
   .reviews__item:last-child {
@@ -493,12 +522,18 @@ body {
     height: 22px;
     right: 4px;
   } */
-  .collection__title {
+  .title {
     font-size: 8.3vw;
+    margin-bottom: 50px;
   }
 
   .collection__items {
     margin-bottom: 60px;
+  }
+
+  .reviews {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .reviews__item {
@@ -543,11 +578,17 @@ body {
     margin-right: 0;
   }
 
-  .collection__title {
-    font-size: 24px;
-  }
-
   .title {
+    font-size: 24px;
     margin-bottom: 10px;
   }
+
+  .reviews__item {
+    flex-basis: 100%;
+  }
+
+  .reviews__item:nth-child(2n) {
+    display: none;
+  }
+
 }
