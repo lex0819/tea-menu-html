@@ -305,6 +305,43 @@ body {
   padding: 12px 41px;
 }
 
+.mailing-list {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: var(--Light-Background);
+  background-image: url(../img/mailing-bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+}
+
+.mailing-list__title {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.mailing-list__inner {
+  display: flex;
+  gap: 60px 40px;
+}
+
+.mailing-list__text {
+  flex-basis: 580px;
+  color: var(--Black);
+  font-family: Open Sans;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.mailing-list__form {
+  flex-basis: 580px;
+  color: var(--Black);
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: 300;
+}
+
 .prioritise {}
 
 .prioritise__img {
