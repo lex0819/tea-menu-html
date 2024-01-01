@@ -429,17 +429,17 @@ body {
 
 .prioritise__list {
   margin-top: 60px;
-  display: flex;
+  display: grid;
+  grid-template: repeat(1, auto)/repeat(4, auto);
   gap: 30px 49px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .prioritise__item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .prioritise__title {
@@ -447,6 +447,7 @@ body {
   font-family: Open Sans;
   font-size: 30px;
   font-weight: 300;
+  text-align: center;
 }
 
 .prioritise__text {
@@ -455,12 +456,133 @@ body {
   font-family: Open Sans;
   font-size: 20px;
   font-weight: 600;
+  text-align: center;
 }
 
 .prioritise__img {
   width: 60px;
   height: 60px;
   margin-top: 40px;
+}
+
+.footer {
+  padding-top: 100px;
+  padding-bottom: 18px;
+  background-color: var(--Light-Background);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template: repeat(2, auto)/repeat(4, 1fr);
+  gap: 100px 41px;
+}
+
+.footer__item_title {
+  font-family: Cormorant;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--Black);
+}
+
+.footer__item_list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--Black);
+}
+
+.footer__item_quote {
+  margin-top: 79px;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--Black);
+}
+
+.footer__item_author {
+  font-family: Open Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  color: var(--Black);
+  margin-top: 20px;
+  display: block;
+  width: 150px;
+}
+
+.footer__item_text {
+  font-family: Open Sans;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: 50px;
+}
+
+.footer__item_contacts {
+  margin-top: 20px;
+  display: grid;
+  grid-template: repeat(2, auto)/repeat(2, auto);
+  gap: 50px 40px;
+}
+
+.footer__item_contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.footer__item_logo {
+  width: 55px;
+}
+
+.footer__item_icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__item_icon>p {
+  font-family: Open Sans;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.footer__item_icon>img {
+  margin-right: 10px;
+  width: 22px;
+}
+
+.footer__item_socials {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center
+}
+
+.footer__item_social {
+  max-width: 24px;
+}
+
+.footer__item_copy {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.footer__item_payments {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
 }
 
 @media(max-width: 1024px) {
@@ -647,8 +769,15 @@ body {
   }
 
   .prioritise__list {
-    gap: 30px 21vw;
+    grid-template: repeat(2, auto)/repeat(2, auto);
+    gap: 30px auto;
     justify-content: space-between;
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template: repeat(2, auto)/repeat(4, 1fr);
+    gap: 55px 41px;
   }
 }
 
@@ -685,8 +814,22 @@ body {
     justify-self: end;
   }
 
-  .prioritise__list {
-    gap: 30px 16vw;
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 10px;
+  }
+
+  .footer__inner {
+    grid-template: repeat(3, auto)/repeat(3, 1fr);
+  }
+
+  .footer__item_products,
+  .footer__item_company {
+    grid-row: span 2;
+  }
+
+  .footer__item_quote {
+    margin-top: 0;
   }
 }
 
@@ -795,8 +938,40 @@ body {
   }
 
   .prioritise__list {
+    grid-template: repeat(4, 1fr)/repeat(1, auto);
     justify-content: center;
     gap: 50px auto;
+  }
+
+  .footer__inner {
+    grid-template: repeat(4, auto)/repeat(2, 1fr);
+  }
+
+  .footer__item_quote {
+    grid-column: span 2;
+  }
+
+  .footer__item_author {
+    width: 100%;
+  }
+
+  .footer__item_touch {
+    grid-column: span 2;
+  }
+
+  .footer__item_touch>.footer__item_title,
+  .footer__item_touch>.footer__item_text {
+    text-align: center;
+  }
+
+  .footer__item_contacts {
+    grid-template: repeat(1, auto)/repeat(3, auto);
+    gap: 40px 20px;
+    justify-content: start;
+  }
+
+  .footer__item_socials {
+    grid-column: span 1;
   }
 }
 
@@ -895,7 +1070,6 @@ body {
   }
 
   .prioritise__list {
-    flex-direction: column;
     gap: 40px auto;
   }
 
@@ -908,4 +1082,15 @@ body {
     font-size: 10px;
     text-transform: uppercase;
   }
+
+  .footer__item_contacts {
+    grid-template: repeat(2, auto)/repeat(2, auto);
+    justify-content: center;
+  }
+
+  .footer__item_socials {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
 }
