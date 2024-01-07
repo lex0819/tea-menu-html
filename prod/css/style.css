@@ -427,6 +427,17 @@ body {
   padding-bottom: 150px;
 }
 
+.mailing-list_sucsess {
+  display: none;
+}
+
+.mailing-list_sucsess.opened {
+  display: block;
+  color: red;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
 .prioritise__list {
   margin-top: 60px;
   display: grid;
