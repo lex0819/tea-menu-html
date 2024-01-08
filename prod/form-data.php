@@ -1,8 +1,8 @@
 <?php
 // Если форма отправлена, обрабатываем данные
-if(isset(isset($_POST['email'])){
+if (isset($_POST['email'])) {
   // Проверяем, являются ли поля валидными
-  if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false){
+  if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
     echo 'Please enter right email !';
     die;
   } else {
