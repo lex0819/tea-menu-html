@@ -6,7 +6,6 @@ const mailForm = document.querySelector(".mailing-list__form");
 const mailFormSend = document.querySelector(".mailing-list__btn");
 const mailFormCheck = document.querySelector(".checkbox");
 const mailFormSucsess = document.querySelector(".mailing-list_sucsess");
-const mailFormSucsessActiveClass = "opened";
 
 const closeMenu = () => {
   menuList.classList.remove("menu__list-open");
@@ -31,16 +30,47 @@ document.addEventListener("click", (event) => {
 });
 
 mailFormCheck.addEventListener("change", (event) => {
-  console.log("mailFormCheck.checked", event.target.checked);
+  // console.log("mailFormCheck.checked", event.target.checked);
   if (event.target.checked == true) {
     mailFormSend.disabled = false;
   } else {
     mailFormSend.disabled = true;
   }
-  console.log("mailFormSend.disabled", mailFormSend.disabled);
+  // console.log("mailFormSend.disabled", mailFormSend.disabled);
 });
+
+function sendData() {
+  const email = document.querySelector(".mailing-list__email").value;
+
+  console.log("email", email);
+  if (/^[^ ]+@[^ ]+\.[a-z]{2,}$/.test(email)) {
+    const formData = new FormData(mailForm);
+    // formData.append("email", email);
+    // console.log("mailForm", mailForm);
+    // console.log("formData", formData);
+
+    fetch("/server_path", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Форма успешно отправлена!");
+          mailFormSucsess.innerHTML = "You've successfully joined!";
+        } else {
+          mailFormSucsess.innerHTML = "Form sending error!";
+          throw new Error("Ошибка при отправке формы.");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    mailFormSucsess.innerHTML = "Incorrect email !";
+  }
+}
 
 mailForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  mailFormSucsess.classList.add(mailFormSucsessActiveClass);
+  sendData();
 });
