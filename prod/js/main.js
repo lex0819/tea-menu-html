@@ -39,32 +39,28 @@ mailFormCheck.addEventListener("change", (event) => {
   // console.log("mailFormSend.disabled", mailFormSend.disabled);
 });
 
-function sendData() {
+async function sendData() {
   const email = document.querySelector(".mailing-list__email").value;
 
-  console.log("email", email);
   if (/^[^ ]+@[^ ]+\.[a-z]{2,}$/.test(email)) {
     const formData = new FormData(mailForm);
-    // formData.append("email", email);
-    // console.log("mailForm", mailForm);
-    // console.log("formData", formData);
 
-    fetch("https://tea-nav-menu.elenivan.ru/form-data.php", {
+    const url = "https://tea-nav-menu.elenivan.ru/form-data.php";
+    let response = await fetch(url, {
       method: "POST",
       body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log(response.text());
-          mailFormSucsess.innerHTML = response.text(); //"You've successfully joined!";
-        } else {
-          mailFormSucsess.innerHTML = "Form sending error!";
-          throw new Error("Form sending error!");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    });
+
+    if (response.ok) {
+      // если HTTP-статус в диапазоне 200-299
+      // получаем тело ответа (см. про этот метод ниже)
+      let serverTextResponse = await response.text();
+    } else {
+      alert("Ошибка HTTP: " + response.status);
+      return;
+    }
+
+    mailFormSucsess.innerHTML = serverTextResponse;
   } else {
     mailFormSucsess.innerHTML = "Incorrect email!";
   }

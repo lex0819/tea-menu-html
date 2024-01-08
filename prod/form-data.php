@@ -15,7 +15,7 @@ if (isset($_POST['email'])) {
     // Закрываем файл
     fclose($file);
 
-    echo 'Sucsess !';
+    echo 'Sucsess!';
   }
 } else{
   die;
