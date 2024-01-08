@@ -49,7 +49,7 @@ function sendData() {
     // console.log("mailForm", mailForm);
     // console.log("formData", formData);
 
-    fetch("/server_path", {
+    fetch("https://tea-nav-menu.elenivan.ru/form-data.php", {
       method: "POST",
       body: formData,
     })
