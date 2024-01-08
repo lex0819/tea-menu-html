@@ -55,18 +55,18 @@ function sendData() {
     })
       .then((response) => {
         if (response.ok) {
-          console.log("Форма успешно отправлена!");
+          console.log(response.text());
           mailFormSucsess.innerHTML = "You've successfully joined!";
         } else {
           mailFormSucsess.innerHTML = "Form sending error!";
-          throw new Error("Ошибка при отправке формы.");
+          throw new Error("Form sending error!");
         }
       })
       .catch((error) => {
         console.error(error);
       });
   } else {
-    mailFormSucsess.innerHTML = "Incorrect email !";
+    mailFormSucsess.innerHTML = "Incorrect email!";
   }
 }
 

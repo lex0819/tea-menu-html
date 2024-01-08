@@ -10,7 +10,7 @@ if (isset($_POST['email'])) {
     $file = fopen('data-email.txt', 'a');
 
     // Записываем данные в файл
-    fwrite($file, 'E-mail: '.$_POST['email']."\n\n");
+    fwrite($file, date('Y-m-d H:i:s').' '.$_POST['email']."\n\n");
 
     // Закрываем файл
     fclose($file);
