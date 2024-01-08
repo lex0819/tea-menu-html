@@ -50,11 +50,11 @@ async function sendData() {
       method: "POST",
       body: formData,
     });
-
+    let serverTextResponse = "";
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
       // получаем тело ответа (см. про этот метод ниже)
-      let serverTextResponse = await response.text();
+      serverTextResponse = await response.text();
     } else {
       alert("Ошибка HTTP: " + response.status);
       return;
