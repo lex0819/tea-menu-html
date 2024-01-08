@@ -56,7 +56,7 @@ function sendData() {
       .then((response) => {
         if (response.ok) {
           console.log(response.text());
-          mailFormSucsess.innerHTML = "You've successfully joined!";
+          mailFormSucsess.innerHTML = response.text(); //"You've successfully joined!";
         } else {
           mailFormSucsess.innerHTML = "Form sending error!";
           throw new Error("Form sending error!");
