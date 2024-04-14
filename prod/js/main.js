@@ -53,7 +53,7 @@ async function sendData() {
     let serverTextResponse = "";
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
-      // получаем тело ответа (см. про этот метод ниже)
+      // получаем тело ответа
       serverTextResponse = await response.text();
     } else {
       alert("Ошибка HTTP: " + response.status);
